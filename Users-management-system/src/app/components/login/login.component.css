@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 44%, rgba(255,255,255,1) 44%);
+    width: 100vw;
+    text-align: center;
+}
+.example-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+.none{
+    display: none;
+}
+.show{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.warnTry{
+    display: inline-block;
+}

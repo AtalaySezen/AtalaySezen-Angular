@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+  <form class="example-form">
+    <p> </p>
+    <button mat-raised-button style="margin-bottom:0.5rem;">Welcome {{userName|titlecase}}</button>
+    <ng-container *ngIf="password !=pass||userName !=user">
+      <button [class]="warnPass" mat-raised-button matTooltip="Username is admin, not Admin."
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        Your username or password is wrong
+      </button>
+    </ng-container>
+    <ng-container>
+      <button [class]="warnTry" mat-raised-button matTooltip="Username is admin, not Admin."
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        Birden fazla kez hatalı şifre girdiniz. Güvenlik için kullanıcı adı ve şifre değiştiriliyor...
+      </button>
+
+    </ng-container>
+    <ng-container *ngIf="password==null||password.length<1">Please Enter Your Password</ng-container>
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input name="username" matInput placeholder="Username" [(ngModel)]="userName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" name="password" [(ngModel)]="password">
+    </mat-form-field>
+    <button mat-button color="accent"
+      [disabled]="userName===undefined||userName.length<3&&password===undefined||password.length<4"
+      (click)="loginHref()">Login</button>
+  </form>
+  <app-footer></app-footer>
+</body>
+
+</html>
