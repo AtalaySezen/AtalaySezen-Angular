@@ -15,6 +15,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInput, MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon'
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSliderModule,
     MatButtonModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

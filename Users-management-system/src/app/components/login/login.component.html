@@ -9,16 +9,16 @@
 </head>
 
 <body>
-  <app-navbar></app-navbar>
   <form class="example-form">
     <p> </p>
     <button mat-raised-button style="margin-bottom:0.5rem;">Welcome {{userName|titlecase}}</button>
-    <ng-container *ngIf="password !=pass||userName !=user">
-      <button [class]="warnPass" mat-raised-button matTooltip="Username is admin, not Admin."
+    <div [class]="warnPass">
+      <button mat-raised-button matTooltip="Username is admin, not Admin."
         aria-label="Button that displays a tooltip when focused or hovered over">
-        Your username or password is wrong
+
+        {{warnMessage}}
       </button>
-    </ng-container>
+    </div>
     <ng-container>
       <button [class]="warnTry" mat-raised-button matTooltip="Username is admin, not Admin."
         aria-label="Button that displays a tooltip when focused or hovered over">
@@ -26,19 +26,28 @@
       </button>
 
     </ng-container>
-    <ng-container *ngIf="password==null||password.length<1">Please Enter Your Password</ng-container>
+    <ng-container *ngIf="userName!=null">Please Enter Your Password</ng-container>
     <mat-form-field class="example-full-width">
       <mat-label>Username</mat-label>
       <input name="username" matInput placeholder="Username" [(ngModel)]="userName">
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
+
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" name="password" [(ngModel)]="password">
+      <input matInput placeholder="Password" name="password" type="password" [(ngModel)]="password">
+      <div style="    display: inline;
+      position: absolute;
+      right: 1rem;
+      top: -6px;">
+       <span class="material-icons" (click)="showPass()">
+        visibility
+        </span>
+      </div>
     </mat-form-field>
-    <button mat-button color="accent"
-      [disabled]="userName===undefined||userName.length<3&&password===undefined||password.length<4"
+    <button mat-raised-button color="accent" [disabled]="userName===undefined||password===undefined||password.length<4"
       (click)="loginHref()">Login</button>
   </form>
+  {{userName}}
   <app-footer></app-footer>
 </body>
 
