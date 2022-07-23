@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete';">
+    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
+    
+    <input placeholder="{{action}} Password" matInput [(ngModel)]="local_data.pass">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

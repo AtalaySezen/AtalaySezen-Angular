@@ -18,8 +18,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon'
 import {MatDialogModule} from '@angular/material/dialog';
-
-
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HomeComponent,
     AboutUsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DialogComponent
   ],
   imports: [
     FormsModule,

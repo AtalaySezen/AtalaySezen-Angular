@@ -1,104 +1,30 @@
-<body >
-<app-navbar></app-navbar>
+<body>
+  <div class="container2">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element" (click)="eventTarget($event.target)"> {{element.username}} </td>
+      </ng-container>
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef> Password </th>
+        <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+      </ng-container>
+      <ng-container matColumnDef="birthYear">
+        <th mat-header-cell *matHeaderCellDef> BirthYear </th>
+        <td mat-cell *matCellDef="let element"> {{element.birthYear}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary"(click)="openDialog('Update',element)">Edit</button> |
+          <button mat-raised-button color="warn" (click)="deleteData(element.id)">Delete</button>
 
-<div class="container2">
-  <ol>
-    <li>
-      <mat-form-field appearance="fill">
-        <mat-label>What's your name?</mat-label>
-        <input matInput [(ngModel)]="name">
-      </mat-form-field>
-    </li>
-    <li>
-      <button mat-raised-button (click)="openDialog()">Pick one</button>
-    </li>
-    <li *ngIf="userEdit">
-      You chose: <i>{{userEdit}}</i>
-      
-    </li>
-    
-  
-  </ol>
-  
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        </td>
+      </ng-container>
 
- 
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="password">
-      <th mat-header-cell *matHeaderCellDef> Password </th>
-      <td mat-cell *matCellDef="let element"> {{element.password}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="birthYear">
-      <th mat-header-cell *matHeaderCellDef> BirthYear </th>
-      <td mat-cell *matCellDef="let element"> {{element.birthYear}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element"> 
-      <button mat-raised-button color="primary" (click)="editData(element.id)">Edit</button>  
-      <button mat-raised-button color="warn" (click)="deleteData(element.id)">Delete</button>  
-
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
-</div>
-<!-- <div class="container"  [class]="filter">
-  <div class="info-area">
-    <div class="change-user">
-      <input type="text" [(ngModel)]="newUser">
-      <button mat-raised-button (click)="newName()">Change Username</button>
-    </div>
-    <div class="change-user">
-      <input type="text" [(ngModel)]="newPass">
-      <button mat-raised-button (click)="newPassword()">Change Password</button>
-    </div>
-    <div class="change-user">
-      <input type="text" [(ngModel)]="newBirth">
-      <button mat-raised-button (click)="newBirthYear()">Change BirthYear</button>
-    </div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </div>
-
-
-
-
-  <table mat-table [dataSource]="post" class="mat-elevation-z8 demo-table">
-     <ng-container matColumnDef="demo-position" >
-      <th mat-header-cell *matHeaderCellDef> Username</th>
-      <td mat-cell *matCellDef="let post" (click)="test()" > {{post.username}}
-         </td>
-    </ng-container>
-    <ng-container matColumnDef="demo-name">
-      <th mat-header-cell *matHeaderCellDef> Password</th>
-      <td mat-cell *matCellDef="let post"> {{post.password}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="demo-weight">
-      <th mat-header-cell *matHeaderCellDef> Birthyear </th>
-      <td mat-cell *matCellDef="let post"> {{post.birthYear}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="demo-symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div> -->
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </body>
