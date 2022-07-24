@@ -1,7 +1,7 @@
 //dialog-box.component.ts
 import { Component, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { ToastrService } from 'ngx-toastr';
 export interface UsersData {
   name: string;
   id: number;
@@ -11,6 +11,7 @@ export interface UsersData {
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
+
 export class DialogComponent {
   action: string;
   local_data: any;
@@ -18,6 +19,7 @@ export class DialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
+    private toastr: ToastrService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData) {
     console.log(data);
     this.local_data = { ...data };
@@ -27,11 +29,8 @@ export class DialogComponent {
     this.dialogRef.close({ event: this.action, data: this.local_data });
     console.log(this.local_data.name, "bu inputtan gelen")
   }
-  
   closeDialog() {
     this.dialogRef.close({ event: 'Cancel' });
-    alert("kapatıldı")
-
   }
 
 }

@@ -13,12 +13,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
-import {MatInput, MatInputModule} from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
+import { MatInput } from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon'
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,11 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatTooltipModule,
     MatTableModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    ToastrModule,
+    CommonModule,
+    ToastrModule.forRoot(), // ToastrModule added
+
   ],
   providers: [],
   bootstrap: [AppComponent]

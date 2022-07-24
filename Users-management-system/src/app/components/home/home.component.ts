@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { KeyValuePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +12,7 @@ import { KeyValuePipe } from '@angular/common';
 })
 
 export class HomeComponent implements OnInit {
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, public dialog: MatDialog, private toastr: ToastrService) { }
   username: string = '';
   birthDay: string = '';
   selam: string
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['username', 'password', 'birthYear', 'action'];
   dataSource = this.post;
 
+  //Delete Data
   deleteData(id: number) {
     var find = this.post.findIndex(x => {
       return x.id == id;
@@ -35,21 +38,8 @@ export class HomeComponent implements OnInit {
     this.post.splice(find, 1);
     this.dataSource = [...this.post];
   }
-  filter = 'normal-body'
-  none = 'none';
-  newUser2: any;
-  name: any;
-  userEdit: any;
 
   //Edit Data
-  eventTarget(event: any) {
-    this.post.forEach(posts => {
-      if (event === posts) {
-        posts.username = this.newUser2
-      }
-    })
-    this.none = 'show';
-  }
   newUser: any;
   newPass: any;
   newBirth: any;
@@ -65,6 +55,7 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  //Data Update!!
   updateRowData(row_obj: { id: number; name: any; pass: any; }) {
     this.dataSource = this.dataSource.filter((value) => {
       console.log(value.id, "bu id")
@@ -72,24 +63,29 @@ export class HomeComponent implements OnInit {
       if (value.id == row_obj.id) {
         value.username = row_obj.name;
         value.password = row_obj.pass;
-        alert("edited");
+        this.toastr.success(' Data has been edited');
       }
       return true;
     });
   }
-  
+  //Toastr
+  showWarning() {
+    this.toastr.warning('Please Fill The Inputs');
+  }
+  showSuccess() {
+    this.toastr.success('New Data Added');
+  }
+  //Add data!
   addUser: string = '';
   addPassword: string = '';
   addId: number;
   addBirthYear: number;
+
   addRowData() {
-    let counter = 9;
-    console.log(counter)
-    if (this.username==''&&this.addPassword=='') {
-      alert("doldur")
+    if (this.username == '' && this.addPassword == '') {
+      this.showWarning();
     } else {
-      ++counter;
-      console.log(counter)
+      this.showSuccess();
       console.log(this.dataSource)
       this.dataSource.push({
         birthYear: this.addBirthYear,
@@ -99,7 +95,6 @@ export class HomeComponent implements OnInit {
       })
       this.dataSource = [...this.dataSource]
     }
-
   }
   ngOnInit() { }
 }
