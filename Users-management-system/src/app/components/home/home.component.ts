@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
     { username: 'John1234', password: 'John1234', birthYear: 1994, id: 4 },
     { username: 'John1234', password: 'John1234', birthYear: 1994, id: 5 },
     { username: 'John1234', password: 'John1234', birthYear: 1994, id: 6 },
-    { username: 'John1234', password: 'John1234', birthYear: 1994, id: 7 }
+    { username: 'John1234', password: 'John1234', birthYear: 1994, id: 7 },
+    { username: 'John1234', password: 'John12123131321', birthYear: 1994, id: 8 }
+
   ]
   displayedColumns: string[] = ['username', 'password', 'birthYear', 'action'];
   dataSource = this.post;
@@ -33,7 +35,6 @@ export class HomeComponent implements OnInit {
     this.post.splice(find, 1);
     this.dataSource = [...this.post];
   }
-
   filter = 'normal-body'
   none = 'none';
   newUser2: any;
@@ -76,6 +77,29 @@ export class HomeComponent implements OnInit {
       return true;
     });
   }
+  
+  addUser: string = '';
+  addPassword: string = '';
+  addId: number;
+  addBirthYear: number;
+  addRowData() {
+    let counter = 9;
+    console.log(counter)
+    if (this.username==''&&this.addPassword=='') {
+      alert("doldur")
+    } else {
+      ++counter;
+      console.log(counter)
+      console.log(this.dataSource)
+      this.dataSource.push({
+        birthYear: this.addBirthYear,
+        id: this.addId,
+        username: this.addUser,
+        password: this.addPassword
+      })
+      this.dataSource = [...this.dataSource]
+    }
 
+  }
   ngOnInit() { }
 }
