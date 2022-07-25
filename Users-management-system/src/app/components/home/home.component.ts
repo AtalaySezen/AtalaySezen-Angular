@@ -56,13 +56,13 @@ export class HomeComponent implements OnInit {
     });
   }
   //Data Update!!
-  updateRowData(row_obj: { id: number; name: any; pass: any; }) {
+  updateRowData(row_obj: { id: number; username: any; password: any; }) {
     this.dataSource = this.dataSource.filter((value) => {
       console.log(value.id, "bu id")
-      console.log(row_obj.name)
+      console.log(row_obj.username)
       if (value.id == row_obj.id) {
-        value.username = row_obj.name;
-        value.password = row_obj.pass;
+        value.username = row_obj.username;
+        value.password = row_obj.password;
         this.toastr.success(' Data has been edited');
       }
       return true;
