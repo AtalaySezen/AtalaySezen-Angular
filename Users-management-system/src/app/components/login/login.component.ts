@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   loginHref() {
     let localUser = localStorage.getItem('username');
     let localPass = localStorage.getItem('password');
-    console.log(this.userName,this.password)
+    console.log(this.userName, this.password)
     if (this.userName == this.user && this.password == this.pass) {
       localStorage.setItem('isLogged', 'true')
       this.router.navigate(['home']);
@@ -47,12 +47,15 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
           location.reload()
         }, 800);
+      } else if (localPass!=this.password || this.userName != this.user) {
+        this.warnPass = 'show';
+        this.warnMessage = 'Your username or password is wrong '
       }
     }
   }
 
-  showPass(){
-    this.password= 'text'
+  showPass() {
+    this.password = 'text'
 
   }
 }
