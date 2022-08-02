@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+}
+.content{
+    width: 100%;
+    max-width: 1300px;
+}
+.btn-color{
+    background-color: transparent;
+    border: 0;
+}
+.home-btn{
+    cursor: pointer;
+}

@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<div class="navbar">
+<p>
+    <mat-toolbar [color]="color">
+      <span class="home-btn" routerLink="" >Home</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" routerLink="notes"  aria-label="Example icon-button with share icon">
+        <span class="home-btn" >Notes</span>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="colorChange()">
+        <mat-icon>palette</mat-icon>
+    </button>
+   
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon routerLink="settings">settings</mat-icon>
+      </button>
+   
+    </mat-toolbar>
+  </p>
+</div>
+  <div class="container">
+    <div class="content">
+        <router-outlet>
+        </router-outlet>
+    </div>
+
+  </div>

@@ -1,0 +1,27 @@
+<h1 class="header-notes">Add New Note</h1>
+
+<mat-form-field class="example-full-width" style="margin-right:1rem;">
+    <input [(ngModel)]="newTitle" matInput placeholder="Note Title" value="Please Enter New Title">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+    <input [(ngModel)]="newNote" matInput placeholder="Note,I should learn..." value="Please Enter New Note">
+</mat-form-field>
+<div class="note-area">
+    <h1 class="header-notes">Notes</h1>
+    <div *ngFor="let notes of quickNotes">
+        <mat-label>
+            <p class="note-title">
+                {{notes.title|titlecase}}
+            </p>
+        </mat-label>
+        <mat-card>
+            <p class="note-info">{{notes.not}} </p>
+            <span class="date-info"> {{notes.date |date:'dd-yy'}}</span></mat-card>
+    </div>
+</div>
+<div class="btn">
+    <button mat-raised-button color="primary"
+    [disabled]="newTitle == null||undefined||newTitle.length<1&&newNote==null||undefined||newNote.length<1"
+    (click)="addNewNote(title,not,date)">Add</button>
+    <button (click)="deleteNote()" mat-raised-button color="warn">Delete</button>
+</div>
