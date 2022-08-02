@@ -5,8 +5,8 @@ import { QuicknotesComponent } from './components/quicknotes/quicknotes.componen
 import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
-  {path:'notes',component:QuicknotesComponent,title:'Notes'},
-  {path:'settings',component:SettingsComponent,title:'Settings'}
+  { path: 'notes', component: QuicknotesComponent, title: 'Notes' },
+  { path: 'settings', component: SettingsComponent, title: 'Settings' }
 ];
 
 @NgModule({
