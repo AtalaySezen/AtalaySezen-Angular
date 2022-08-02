@@ -5,7 +5,6 @@ import { QuicknotesComponent } from './components/quicknotes/quicknotes.componen
 import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
-  {path:'',component:AppComponent,title:'Angular-App'},
   {path:'notes',component:QuicknotesComponent,title:'Notes'},
   {path:'settings',component:SettingsComponent,title:'Settings'}
 ];

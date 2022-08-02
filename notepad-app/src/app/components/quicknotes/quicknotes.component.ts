@@ -28,6 +28,8 @@ export class QuicknotesComponent implements OnInit {
         not,
         date
       })
+      this.newNote ='';
+      this.newTitle = '';
   }
   deleteNote(){
     this.quickNotes.pop();
