@@ -1,3 +1,8 @@
-<div class="container">
-    <h1>Settings</h1>
-</div>
+    <div class="container">
+        <h1>Settings</h1>
+        <p>Dark Mode</p>
+        <i class="material-icons" (click)="enableDarkMode()">bedtime</i>
+        <p>Disable Dark Mode</p>
+        <i class="material-icons" [class]="lightMode" (click)="disableDarkMode()">sunny</i>
+
+    </div>
