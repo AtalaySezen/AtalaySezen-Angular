@@ -24,7 +24,10 @@ export class BoardService {
     console.log(this.boards);
   }
 
-
+  public deleteBoard(boardNumber: number) {
+    this.boards.splice(boardNumber, 1);
+    localStorage.setItem('boards', JSON.stringify(this.boards));
+  }
 
 
 

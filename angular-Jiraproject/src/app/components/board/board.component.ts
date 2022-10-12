@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { BoardService } from 'src/app/services/board.service';
 import { BoardsDialogComponent } from './boards-dialog/boards-dialog.component';
 
 @Component({
@@ -9,10 +10,14 @@ import { BoardsDialogComponent } from './boards-dialog/boards-dialog.component';
 })
 export class BoardComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, public boardService: BoardService) { }
 
   ngOnInit(): void {
   }
+  deleteBoard(i: number) {
+    this.boardService.deleteBoard(i);
+  }
+
   openNewBoardDialog() {
     var dialog = this.dialog.open(BoardsDialogComponent, {
       width: '500px'

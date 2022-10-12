@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { ViewBoardComponent } from './components/view-board/view-board.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
     HeaderComponent,
     BoardComponent,
     BoardsDialogComponent,
+    ViewBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
