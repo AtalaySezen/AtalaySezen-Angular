@@ -4,7 +4,7 @@ Login Info:
 <br>
 <b>Password:</b>12345
 
-<a href="https://stirring-dango-9f96e7.netlify.app/" target="_blank">Link</a>
+<a href="https://stirring-dango-9f96e7.netlify.app/">Link</a>
 
 # UsersManagementSystem
 
