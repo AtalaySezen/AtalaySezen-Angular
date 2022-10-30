@@ -1,3 +1,9 @@
+Login Info:
+<br>
+<b>Username:</b>admin
+<br>
+<b>Password:</b>12345
+
 # UsersManagementSystem
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
