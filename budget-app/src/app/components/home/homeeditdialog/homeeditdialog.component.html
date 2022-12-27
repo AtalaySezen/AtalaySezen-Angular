@@ -1,0 +1,35 @@
+<form [formGroup]="Form"
+  class="w-full flex flex-wrap mt-10 pt-5 items-center justify-center text-center overflow-hidden">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder={{data.id}} type="text" formControlName="id" placeholder="id">
+      <mat-hint>Id</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Gelir İsmi</mat-label>
+      <input matInput placeholder={{data.incomeName}} type="text" formControlName="incomeName" placeholder="incomeName">
+      <mat-hint>Gelir İsmi</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Miktar</mat-label>
+      <input placeholder={{data.amount}} matInput type="text" formControlName="amount" placeholder="amount">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Tarih</mat-label>
+      <input placeholder={{data.date}} matInput type="text" formControlName="date" placeholder="date">
+    </mat-form-field>
+  </p>
+</form>
+
+<div mat-dialog-actions class="flex flex-row items-center justify-center ">
+  <button mat-raised-button color="warn" translate (click)="closeDialog()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="saveDialog()" translate>Save</button>
+</div>

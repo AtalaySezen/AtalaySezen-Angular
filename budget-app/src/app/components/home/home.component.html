@@ -1,0 +1,94 @@
+<div class="flex w-full h-full">
+    <app-sidenav></app-sidenav>
+    <app-loading *ngIf="loadingTable"></app-loading>
+    <div class="content mt-10 flex-wrap ml-5 flex-col w-full mx-10 overflow-hidden" *ngIf="!loadingTable">
+        <div class="flex justify-between w-full">
+            <div>
+                <h1 class="text-3xl text-stone-600">{{header}}</h1>
+            </div>
+            <div>
+                <button mat-stroked-button color="primary" (click)="changeShow()">{{header2}} Tablosu</button>
+            </div>
+        </div>
+        <div class="mt-5 w-full mx-5 flex-col items-center justify-center ">
+            <!---Income Table-->
+            <table mat-table [dataSource]="incomeSource" *ngIf="showTable" class="mat-elevation-z8 ">
+                <ng-container matColumnDef="number">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="expense">
+                    <th mat-header-cell *matHeaderCellDef> Gelirler </th>
+                    <td mat-cell *matCellDef="let element"> {{element.incomeName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> Miktar</th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Tarih </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Eylem</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button [value]="element.id" (click)="deleteIncome(element.id)" mat-icon-button color="accent"
+                            matTooltip="Sil">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button [value]="element.id"
+                            (click)="editItem(element.id,element.incomeName,element.amount,element.date)"
+                            mat-icon-button color="primary" matTooltip="Düzenle">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <!---Expense Table-->
+            <table mat-table [dataSource]="dataSource" *ngIf="!showTable" class="mat-elevation-z8 ">
+                <ng-container matColumnDef="number">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="expense">
+                    <th mat-header-cell *matHeaderCellDef> Harcama </th>
+                    <td mat-cell *matCellDef="let element"> {{element.expense_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> Miktar</th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Tarih </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Eylem</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button [value]="element.id" (click)="deleteExpense(element.id)" mat-icon-button color="accent"
+                            matTooltip="Sil">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button [value]="element.id"
+                            (click)="editExpense(element.id,element.expense_name,element.amount,element.date)"
+                            mat-icon-button color="primary" matTooltip="Düzenle">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
